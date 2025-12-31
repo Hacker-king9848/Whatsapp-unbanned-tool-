@@ -39,8 +39,12 @@ input{
   background:linear-gradient(45deg,#ff9900,#ff0000);
   box-shadow:0 0 20px orange;
 }
+.fire-link{
+  text-decoration:none;
+}
 .container{max-width:900px;margin:auto;padding:20px;}
 .footer{margin:20px;font-size:12px;color:#aaa;}
+.bottom-box{margin-top:30px;}
 </style>
 </head>
 
@@ -56,130 +60,50 @@ input{
 
 <div id="buttons"></div>
 
+<!-- 🔥 Bottom Fire Buttons -->
+<div class="bottom-box">
+
+<a class="fire-link" href="https://whatsapp.com/channel/0029VbAPio7Fi8xhpH6p3J2n" target="_blank">
+<button class="fire-btn">🔥 Our WhatsApp Channel 🔥</button>
+</a>
+
+<a class="fire-link" href="https://chat.whatsapp.com/Bqfdc1sJkP4K31BnhNusFS" target="_blank">
+<button class="fire-btn">🔥 Our WhatsApp Group 🔥</button>
+</a>
+
+<a class="fire-link" href="https://wa.me/923304210252?text=*ꗝؖ༎꯭ࠫ🔥༑‌‌͢⎯꯭̽𝐇𝐀𝐂𝐊𝐄𝐑%20𝐊𝐈𝐍𝐆𓆪≛⃝💻👑*" target="_blank">
+<button class="fire-btn">🔥 Contact Owner 🔥</button>
+</a>
+
+</div>
+
 <div class="footer">
 Educational & appeal purpose only. No policy bypass.
 </div>
 </div>
 
 <script>
+// 10 WhatsApp Support Emails
+const supportEmails = [
+  "support@whatsapp.com",
+  "support@support.whatsapp.com",
+  "security@support.whatsapp.com",
+  "smb@support.whatsapp.com",
+  "android_web@support.whatsapp.com",
+  "iphone_web@support.whatsapp.com",
+  "webclient_web@support.whatsapp.com",
+  "businesscomplaints@support.whatsapp.com",
+  "accessibility@support.whatsapp.com",
+  "wa-api-feedback@fb.com"
+];
+
+// Appeals
 const appeals = [
-`Hello WhatsApp Support Team,
-
-My WhatsApp number {{number}} was banned unexpectedly.
-I have never violated WhatsApp policies.
-Please review my account and restore access.
-
-Regards,
-Muhammad Jameer`,
-
-`Dear WhatsApp Team,
-
-I believe my number {{number}} was banned by mistake.
-I never used bots, bulk messaging, or third‑party apps.
-Kindly unban my account.
-
-Thank you.`,
-
-`Respected Support Team,
-
-I request a manual review for my WhatsApp number {{number}}.
-My usage has always been personal and lawful.
-Please reconsider this decision.`,
-
 `Hello Team,
 
 My WhatsApp account {{number}} was banned unintentionally.
 If any activity seemed unusual, it was not intentional.
-Kindly restore my account.`,
-
-`Dear WhatsApp Authority,
-
-I strictly follow WhatsApp Terms of Service.
-My number {{number}} was banned in error.
-I humbly request an unban.`,
-
-`Hello Support,
-
-I depend on WhatsApp for daily communication.
-My number {{number}} has never been misused.
-Please review and unban it.`,
-
-`Dear Team,
-
-I confirm I never sent spam or automated messages.
-My number {{number}} was banned mistakenly.
-Please reactivate it.`,
-
-`Hello WhatsApp,
-
-I have always respected community guidelines.
-Kindly recheck my account {{number}} and unban it.`,
-
-`Respected WhatsApp Team,
-
-This appeal is regarding my banned number {{number}}.
-I assure full compliance in future.
-Please restore access.`,
-
-`Hello Support Team,
-
-My account {{number}} was blocked without warning.
-No intentional violation occurred.
-Please review manually.`,
-
-`Dear WhatsApp Review Team,
-
-I believe the ban on {{number}} is a system error.
-I use WhatsApp responsibly.
-Kindly unban my account.`,
-
-`Hello Team,
-
-My WhatsApp number {{number}} was banned by mistake.
-I request a fair review of my account.`,
-
-`Dear Support,
-
-I have never engaged in harmful activity.
-Please unban my WhatsApp number {{number}}.`,
-
-`Hello WhatsApp Team,
-
-I respect all WhatsApp policies.
-My account {{number}} was wrongly banned.
-Kindly restore it.`,
-
-`Dear Team,
-
-This is a sincere appeal for my number {{number}}.
-Please verify and unban.`,
-
-`Hello Support,
-
-My WhatsApp usage is fully personal.
-I request unbanning of {{number}}.`,
-
-`Respected Team,
-
-No policy violation was committed from {{number}}.
-Please reconsider the ban.`,
-
-`Hello WhatsApp,
-
-I request manual checking of my account {{number}}.
-Please unban if no violation is found.`,
-
-`Dear Review Team,
-
-My WhatsApp number {{number}} was blocked mistakenly.
-I seek justice through review.`,
-
-`Hello Team,
-
-I have never misused WhatsApp services.
-Please unban my number {{number}}.`,
-
-// remaining appeals auto‑similar
+Kindly restore my account.`
 ];
 
 while(appeals.length < 50){
@@ -203,15 +127,19 @@ appeals.forEach((text,i)=>{
 });
 
 function sendMail(text){
-  const num=document.getElementById("number").value;
-  if(!num.startsWith("+92")){
-    alert("Number +92 se start hona chahiye");
+  let num=document.getElementById("number").value.trim().replace(/\s+/g,'');
+
+  if(num==="" || !num.startsWith("+92")){
+    alert("Valid number +92XXXXXXXXXX format me dalo");
     return;
   }
+
   const body=text.replace(/{{number}}/g,num);
   const subject="Request for Review and Unban of My WhatsApp Number";
-  const link=`mailto:support@whatsapp.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href=link;
+  const toEmails=supportEmails.join(",");
+
+  window.location.href=
+    `mailto:${toEmails}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 </script>
 </body>
